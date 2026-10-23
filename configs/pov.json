@@ -1,0 +1,14 @@
+{
+  "sample_fps": 4,
+  "candidates_per_file": 24,
+  "min_score": 15,
+  "profile": "pov",
+  "timeline_fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "min_clip_seconds": 1.5,
+  "max_clip_seconds": 30,
+  "pre_roll_seconds": 0.5,
+  "post_roll_seconds": 0.75,
+  "merge_gap_seconds": 0.5
+}

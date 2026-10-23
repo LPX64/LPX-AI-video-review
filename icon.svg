@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<rect width="128" height="128" rx="27" fill="#172d40"/>
+<path d="M30 27h18l7 10h25a10 10 0 0 1 10 10v27a10 10 0 0 1-10 10H24a10 10 0 0 1-10-10V47a10 10 0 0 1 10-10h6z" fill="#5ad8b1"/>
+<path d="M94 49l21-12v47L94 72z" fill="#e9f7ff"/>
+<circle cx="53" cy="60" r="16" fill="#172d40"/><circle cx="53" cy="60" r="8" fill="#e9f7ff"/>
+<text x="64" y="112" fill="#e9f7ff" font-family="Arial,sans-serif" font-weight="bold" font-size="27" text-anchor="middle">LPX</text>
+</svg>

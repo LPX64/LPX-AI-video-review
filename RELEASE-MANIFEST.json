@@ -1,0 +1,32 @@
+{
+  "version": "1.21",
+  "sha256": {
+    "application.html": "81fdcd31d1234e12a951ca7c09ecd0c62eacf5f07f5cc617b9207e4b6ad83f32",
+    "application.py": "84c8eb64c22b882eb8e7610c99bf7a520816810f42778c73cfab3f517d3e2490",
+    "configs/mixed.json": "b9becd9cc958efb5a9f026045b17c58fba2dca9d712289219d45c1046ca8614c",
+    "configs/phone.json": "4afb1acef4445881aff685ad555bd72d3d7a329b4e8d293974fdb2917b1183b9",
+    "configs/pov.json": "c05516d5a09b5ec844bc57a0ce5f3a865900af7e1fd1e703b83acc162b95e3ae",
+    "icon.ico": "f99616cad8664cb69f6f46689e41cf2bf067d271983dc0a372d9c56f21e539f5",
+    "icon.png": "19149daa4115c1cbf9d98287c84a4b6b1562a77484b2395a9db90d9f6136af28",
+    "icon.svg": "32ff7d7cece83ed6776d915310436e9b05fe82737fab68f4c4f10c36fc790205",
+    "install_categories.py": "9b27f8cccf14e3b190529321d9c7740e56f50df2a8bf7950bbc6d0b1628c9928",
+    "media_timing.py": "e0d2275d0a01176899e2f8a4e1cf8000317106c41895838a212e0f971da3838c",
+    "README.md": "5dccd87049cbc6fac413b1bc13709117a15d381910a70fbae8d4be66a4da9b7a",
+    "requirements.txt": "ce623e51a2872a81d16d46189693abc256cdf102001fe1d3187bd9b9f6b4d092",
+    "review.html": "705eefe24d5becfaf98c1617fc9827b45851abcde0d4dd5093af8381607a3938",
+    "review_features.py": "55b907c91848ef9b4e8c62739468ba295d97ac9a4871690c74f48056a0a2aab8",
+    "semantic.py": "d54d84feef37454567ca0b19f7894c6d3bcdb71bc75e5fbb7694f218e97e9698",
+    "setup.cmd": "bc0a2988a6586edb462909f6ac019e4581cb6bd90ce44f261346b64c3e8e8ce2",
+    "tests/test_adaptive.py": "19992d354f879204951e7e83734f65416bf5e590140a740513d887544ed98131",
+    "tests/test_application.py": "64eebc1a677b0ee363e806866a14b356d5cb25e930b9045796fb2ca49a241acb",
+    "tests/test_decisions.py": "beab907b091c65e1128000a143430f3a3fccaddcf8aa24d03aa7d761ebc67865",
+    "tests/test_mixed_rates.py": "3637ff93b949acbaffbcb5a6c959d22c0c713ca14c305accc1655a4b60fa0f25",
+    "tests/test_original_xml.py": "aa3fc08383b6687d8d71bb5342c04896387920b388155dadbc4738d34c41c6e7",
+    "tests/test_review_v11.py": "91d8ae3a4a9f1c87bf9ca05b29931d8358a5117d20005abc983ff95a4c111414",
+    "Uruchom.cmd": "cb6339f7e663b6d3231dc804c82aa7a0f1bdcdc0cd193d105b2571dc9d2d4fb6",
+    "VERSION.txt": "010e51b00d30c951688d0d09c52499af94913a7251b459d3b6c929548d36f904",
+    "video_engine.py": "95341238bbec60a155f420b50252f0c6c48880d0e03c98f24253e156c7587596",
+    "WERSJA-1.2.md": "d72c40379ff668f1f61dcd324fc2d7c41ac280bc8e2df16b2ed913dfb586f325",
+    "Zainstaluj-kategorie.cmd": "9633ef87cd88980b1388d0e5bfe35eb58bf674275312c15e573d052de89b69b5"
+  }
+}

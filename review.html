@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LPX AI video review</title>
+<style>
+body{font:16px system-ui;background:#101c29;color:#e9f2fa;margin:0}header{padding:24px 5%;background:#172a3c;position:sticky;top:0;z-index:1;border-bottom:1px solid #36516a}h1{margin:0;font-size:28px}p{line-height:1.5;color:#bacddd}button,select{font:inherit;padding:10px 14px;border:1px solid #5d7d96;border-radius:8px;background:#20394f;color:white;cursor:pointer;margin:3px}button:hover{background:#355970}button:disabled{opacity:.5;cursor:wait}.yes{background:#17624f}.no{background:#703a42}main{padding:24px 5%;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}article{background:#192d40;border:2px solid #30485d;border-radius:12px;overflow:hidden}article.accepted{border-color:#5ed7a6}article.rejected{border-color:#e28c8c}video{width:100%;background:black;aspect-ratio:16/9}.info{padding:16px}.name{font-weight:650;overflow-wrap:anywhere}.metrics{font-size:13px;line-height:1.7;color:#bacddd}.score{font-size:23px;font-weight:700}#job{white-space:pre-wrap;overflow-wrap:anywhere}#output{max-width:700px;display:none}#errors{color:#ffb6ab}label{display:inline-block}small{color:#bbcedd}
+</style>
+<header><h1>⛷ LPX AI video review</h1><p>Kandydaci do Twojej oceny. Punktacja opisuje sygnały obrazu; nie rozpoznaje trików ani dobrego zjazdu.</p>
+<div id="analysis" role="status"></div><div id="summary"></div><label>Widok <select id="filter"><option value="all">Wszystkie</option><option value="pending">Do oceny</option><option value="accepted">Zaakceptowane</option><option value="rejected">Odrzucone</option></select></label>
+<button id="export">Generuj podgląd i XML</button><div id="job" role="status"></div><div id="errors"></div><video id="output" controls preload="none"></video></header><main id="cards"></main>
+<script>
+const token='__TOKEN__';let state,signature='';
+const $=id=>document.getElementById(id);
+const names={pending:'Do oceny',accepted:'Zaakceptowany',rejected:'Odrzucony'};
+async function post(path,data){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json','X-Review-Token':token},body:JSON.stringify(data)});const result=await r.json();if(!r.ok)throw Error(result.error||'Błąd zapisu');return result;}
+function element(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
+function render(){const root=$('cards');root.replaceChildren();const filter=$('filter').value;
+for(const c of [...state.candidates].sort((a,b)=>b.score-a.score)){if(filter!=='all'&&c.decision!==filter)continue;
+const card=element('article',undefined,c.decision);const v=element('video');v.controls=true;v.preload='none';v.poster='/'+c.thumbnail;v.src='/'+c.preview;card.append(v);
+const info=element('div',undefined,'info');info.append(element('div',c.name,'name'),element('p',`${c.start.toFixed(1)}–${c.end.toFixed(1)} s · długość ${(c.end-c.start).toFixed(1)} s · ${names[c.decision]}`),element('div',`${c.score.toFixed(1)} / 100`,'score'));if(c.reason)info.append(element('p',c.reason,'metrics'));
+const m=c.metrics;info.append(element('p',`Jakość ${m.quality} · umiarkowana aktywność ${m.activity} · zmiana ${m.change} · niestabilność ${m.shake}`,'metrics'));
+for(const [decision,label,cls] of [['accepted','✓ Akceptuj','yes'],['rejected','✕ Odrzuć','no'],['pending','Cofnij','']]){const b=element('button',label,cls);b.disabled=state.job.status==='running';b.onclick=async()=>{try{await post('/api/decision',{id:c.id,decision});await refresh();}catch(e){alert(e.message);}};info.append(b);}card.append(info);root.append(card);}
+}
+async function refresh(){try{const r=await fetch('/api/state');state=await r.json();const accepted=state.candidates.filter(c=>c.decision==='accepted');const seconds=accepted.reduce((n,c)=>n+c.end-c.start,0);$('summary').textContent=`${state.candidates.length} kandydatów · ${accepted.length} zaakceptowanych · ${seconds.toFixed(1)} s`;
+$('analysis').textContent=state.analysis_status==='analyzing'?`Analiza trwa — gotowe pliki: ${state.analyzed_files}. Możesz już akceptować i odrzucać klipy. Eksport odblokuje się po zakończeniu.`:'';
+$('errors').textContent=state.errors.map(e=>e.file+': '+e.error).join('\n');const j=state.job;$('export').disabled=j.status==='running'||state.analysis_status==='analyzing';$('job').textContent=j.status==='running'?'Trwa eksport. Pozostaw serwer uruchomiony.':j.status==='complete'?'Gotowe: '+j.folder:j.status==='error'?'Błąd: '+j.error:'';
+if(j.preview){$('output').style.display='block';if($('output').getAttribute('src')!==j.preview+'?v='+j.folder)$('output').src=j.preview+'?v='+j.folder;}
+const sig=JSON.stringify([state.candidates.map(c=>c.decision),j.status,state.analysis_status]);if(sig!==signature){signature=sig;render();}}catch(e){$('job').textContent='Brak połączenia z serwerem: '+e.message;}}
+$('filter').onchange=render;$('export').onclick=async()=>{try{await post('/api/export',{});await refresh();}catch(e){alert(e.message);}};refresh();setInterval(refresh,2500);
+</script></html>
