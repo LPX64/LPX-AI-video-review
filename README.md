@@ -1,6 +1,6 @@
 # LPX AI video review 1.21
 
-Lokalna aplikacja Windows do przeglądania filmów MP4/MOV, wyboru fragmentów i eksportu osi czasu do DaVinci Resolve. Nazwa folderu z nagraniami jest dowolna — program nie jest przypisany do konkretnego wyjazdu lub projektu.
+Lokalna aplikacja Windows do przeglądania filmów MP4/MOV, wyboru fragmentów i eksportu osi czasu do DaVinci Resolve. Nazwa folderu z nagraniami jest dowolna.
 
 ## Uruchomienie
 
