@@ -49,12 +49,6 @@ Kategorie: dynamiczna akcja, ludzie, zwierzęta, krajobrazy, architektura, atrak
 
 Aktualne ograniczenie weryfikacji: instalacja wag i rzeczywista jakość klasyfikacji nie zostały przetestowane w środowisku tworzenia tej wersji, gdzie model nie jest dostępny. Funkcja kategorii jest eksperymentalna. Pozostałe testy obejmują rzeczywistą analizę syntetycznego filmu, zmianę granic, ponowny eksport i nienaruszenie oryginału; ponadto chronologię ze strefami czasowymi i blokowanie nakładających się zakresów.
 
-## Aktualizacja z 1.0
-
-Zamknij aplikację przyciskiem **Zamknij aplikację**, następnie uruchom dotychczasowy skrót. Nie wystarczy samo odświeżenie starej karty: serwer musi wczytać nowy kod. Istniejące projekty i decyzje pozostają. Kategorie i nowe limity stosują się do nowej analizy. Dawne eksporty nie zmieniają się automatycznie — wygeneruj nowy XML.
-
-Poprawka audio uzupełnia parametry częstotliwości próbkowania, kanałów, wyjścia stereo i powiązań klipów. Jej odsłuch w Resolve wymaga potwierdzenia po imporcie jako nowa oś czasu.
-
 
 ## Poprawka klatkażu — 23.10.2026
 
