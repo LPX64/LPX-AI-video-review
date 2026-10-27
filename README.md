@@ -30,15 +30,11 @@ Zamknięcie karty przeglądarki samo nie kończy działania serwera. Jeśli podc
 
 **Nowe XML wskazują oryginały w folderze źródłowym.** Po imporcie do Resolve możesz usunąć pliki robocze aplikacji. Jeżeli potrzebujesz XML do ponownego importu, zapisz go wcześniej poza aplikacją. Nie przenoś oryginałów ani nie zmieniaj ich nazw. Starsze XML z wersji 1.0 nadal wskazują folder `media` i wymagają zachowania tych kopii.
 
-Starsze wersje, testowe filmy i skróty do projektów z okresu tworzenia programu znajdują się w sąsiednim **Archiwum**. Nie są częścią nowej aplikacji ani jej listy projektów. Starsze media zachowują dotychczasowe ścieżki, aby nie zepsuć już zaimportowanych osi czasu Resolve.
-
 ## Ograniczenia
 
 Punktacja korzysta z cech obrazu (szczegółowość, ekspozycja, zmiana obrazu, niestabilność), a nie rozpoznawania wydarzeń. Sam ruch nie oznacza wysokiej oceny. Granice fragmentów mogą wymagać poprawienia w Resolve. Nie ma automatycznej synchronizacji zegarów kamer. Ręczne korekty aktualizują punktację techniczną, ale etykiety modelu pozostają etykietami pierwotnej propozycji — panel wyraźnie to opisuje.
 
 Podgląd wykorzystuje robocze kopie H.264 SDR 8-bit, stały klatkaż i stereo AAC. XML wskazuje oryginały. Punkty cięcia klipów są zapisane w klatkażu osi czasu, a opis każdego pliku zachowuje jego natywny klatkaż; obsługiwany dźwięk źródłowy to mono lub stereo. Oryginały nie są zmieniane. Materiał telefonu o zmiennym klatkażu wymaga kontroli dokładności cięć w Resolve (XML używa nominalnego klatkażu). Materiały HDR/log wymagają osobnego przygotowania koloru. XML ma format Final Cut Pro 7. Jego struktura i media były testowane programowo; import w konkretnej wersji Resolve wymaga sprawdzenia.
-
-Testy obejmują analizę, wybór, eksport, brak limitu 120 s, zatrzymanie, zamykanie i bezpieczne czyszczenie. Test przeglądarki i systemowego okna wyboru folderu nie został wykonany wizualnie w tej sesji.
 
 
 ## Kategorie w 1.1
@@ -50,15 +46,11 @@ Kategorie: dynamiczna akcja, ludzie, zwierzęta, krajobrazy, architektura, atrak
 Aktualne ograniczenie weryfikacji: instalacja wag i rzeczywista jakość klasyfikacji nie zostały przetestowane w środowisku tworzenia tej wersji, gdzie model nie jest dostępny. Funkcja kategorii jest eksperymentalna. Pozostałe testy obejmują rzeczywistą analizę syntetycznego filmu, zmianę granic, ponowny eksport i nienaruszenie oryginału; ponadto chronologię ze strefami czasowymi i blokowanie nakładających się zakresów.
 
 
-## Poprawka klatkażu — 23.10.2026
+## Poprawka klatkażu — 1.2
 
 Eksport sprawdza osobno klatkaż i tabelę czasów klatek każdego oryginału MP4/MOV. Jednolity zestaw otrzymuje oś czasu w swoim natywnym klatkażu (np. 59,94); zestaw mieszany używa wspólnego klatkażu profilu (domyślnie 30). Wszystkie klipy audio i wideo mają punkty cięcia w tej samej siatce osi czasu; metadane plików nadal opisują ich własny klatkaż. Nie ma przeliczania przez jeden klatkaż źródłowy dla całego folderu.
 
 Eksport nie wychodzi poza koniec obrazu, nawet gdy dźwięk lub zaokrąglona długość kontenera są dłuższe. Granice są dopasowywane do pełnych klatek osi czasu do wewnątrz wybranego zakresu (zmiana mniejsza niż jedna klatka na każdej granicy). Podgląd i XML używają tych samych zakresów. Przy zmianie klatkażu podgląd może powtórzyć ostatnią klatkę w obrębie tego zakresu, żeby zachować dokładną długość i ciągłość.
-
-Ponowna analiza nie jest wymagana: kontrola odbywa się przy każdym eksporcie. Zwykłe MP4/MOV z tabelą stts są obsługiwane; brak tabeli czasu (np. nagranie fragmentowane) daje komunikat zamiast zgadywania końca filmu. Zmienny klatkaż telefonu nadal wymaga kontroli synchronizacji po imporcie: klasyczny XML ma ograniczenia przy opisie zmiennych odstępów między klatkami.
-
-Testy obejmują wspólny eksport syntetycznych nagrań 25/30/59,94 kl./s z dźwiękiem oraz cięcia blisko końca. Import jednolitego 59,94 oraz test mieszanego klatkażu zostały potwierdzone przez użytkownika w Resolve. Zamrożone archiwum 1.1 pozostaje bez zmian; bieżący folder aplikacji i paczka bez numeru zawierają poprawkę.
 
 
 ## Wersja 1.21
