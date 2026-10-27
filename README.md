@@ -6,7 +6,7 @@ Lokalna aplikacja Windows do przeglądania filmów MP4/MOV, wyboru fragmentów i
 
 Kliknij dwukrotnie skrót **LPX AI video review** obok tego folderu albo plik **Uruchom.cmd** wewnątrz aplikacji. Lokalny program uruchomi się automatycznie i otworzy panel w przeglądarce. Nie otwieraj bezpośrednio pliku `application.html`.
 
-Na tym komputerze biblioteki są już przygotowane. Paczka ZIP na innym komputerze wymaga Pythona 3.11/3.12 z launcherem `py` i internetu podczas pierwszej instalacji bibliotek; uruchamianie inicjuje instalację automatycznie. Paczka nie jest samodzielnym plikiem EXE.
+Paczka ZIP wymaga Pythona 3.11/3.12 z launcherem `py` i internetu podczas pierwszej instalacji bibliotek; uruchamianie inicjuje instalację automatycznie. Paczka nie jest samodzielnym plikiem EXE.
 
 ## Praca
 
